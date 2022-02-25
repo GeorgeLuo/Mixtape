@@ -33,10 +33,37 @@ Notice time will be expressed as above, or ie 1m28s359ms.
 The defined tags are
 
 ```
---web-media content that comes for youtube, vimeo, etc. Dimensions are
+--web-track content that comes for youtube, vimeo, etc. Dimensions are
     offset - the time from beginning to seek
     duration - the time from offset or beginning to consume
---local-media a local file. Same dimensions as web-media.
+--local-track a local file. Same dimensions as web-media.
+--def-file provide a definition file
 ```
+
+### Mixtape definition file
+
+A json formatted mixtape definition can be provided to the cli, defining the features and attributes as the tags do. Tags will apply on top of definition files (logically as if file is converted to tags and tags then applied).
+
+```
+mixtape-cli --def-file mt1_definition.json
+```
+```
+{
+    "tracks": [
+        {
+            "source": "https://www.youtube.com/watch?v=fffffffffff",
+            "duration": "1m3s",
+            "offset": "15s",
+            "source_type": "web"
+        },
+        {
+            "source": "/Users/user/Documents/some_sound.wav",
+            "source_type": "local"
+        }
+    ]
+}
+```
+
+The mix defined above takes the contents of media found at ```https://www.youtube.com/watch?v=fffffffffff``` from time 0:15 to time +1m3s, or 1:18 and appends after it the entirety of ```/Users/user/Documents/some_sound.wav```.
 
 ## Business Logic
