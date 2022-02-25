@@ -66,4 +66,4 @@ mixtape-cli --def-file mt1_definition.json
 
 The mix defined above takes the contents of media found at ```https://www.youtube.com/watch?v=fffffffffff``` from time 0:15 to time +1m3s, or 1:18 and appends after it the entirety of ```/Users/user/Documents/some_sound.wav```.
 
-## Business Logic
+The components of the job were defined to provide modularity in the way of interfaces for independently useful tools. Stages of the job should be independently useful (not necessarily exposed).
